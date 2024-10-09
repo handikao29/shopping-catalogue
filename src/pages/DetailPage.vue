@@ -1,16 +1,23 @@
 <template>
-  <q-page class="flex flex-center">
-    <div>{{ itemData ? itemData.item_name : "" }}</div>
-    <div>
-      <div>{{ itemData ? itemData.seller_name : "" }}</div>
-    </div>
-    <div class="row full-width">
-      <div class="col-6">
+  <q-page class="q-pa-md">
+    <span class="q-mb-md cursor-pointer" @click="$router.push('/')">
+      Back to menu
+    </span>
+    <q-card class="full-width q-pa-md">
+      <div class="detail--item-name">
+        {{ itemData ? itemData.item_name : "" }}
+      </div>
+      <div class="detail--seller-name">
+        {{ itemData ? itemData.seller_name : "" }}
+      </div>
+    </q-card>
+    <div class="row full-width q-pa-md">
+      <div class="col-md-6 col-xs-12 q-pa-md">
         <q-img src="https://cdn.quasar.dev/img/parallax2.jpg"></q-img>
       </div>
-      <div class="col-6">
+      <div class="col-md-6 col-xs-12 q-pa-md">
         <div>{{ itemData ? itemData.description : "" }}</div>
-        <div>
+        <div class="price-tag">
           {{
             itemData
               ? `Rp. ${Intl.NumberFormat("id-ID").format(itemData.price)},-`

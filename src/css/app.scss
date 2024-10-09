@@ -3,3 +3,23 @@
 .cursor-pointer {
   cursor: pointer;
 }
+
+.price-tag {
+  font-size: 24px;
+  color: #874596;
+}
+
+.item-card {
+  height: 300px;
+  width: 200px;
+}
+
+.detail {
+  &--item-name {
+    font-size: 32px;
+  }
+
+  &--seller-name {
+    font-size: 24px;
+  }
+}

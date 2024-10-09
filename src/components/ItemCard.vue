@@ -11,7 +11,7 @@
       {{ description }}
     </q-card-section>
 
-    <q-card-section>
+    <q-card-section class="price-tag">
       {{ `Rp. ${Intl.NumberFormat("id-ID").format(price)},-` }}
     </q-card-section>
     <q-card-section>

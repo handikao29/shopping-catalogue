@@ -1,11 +1,14 @@
 <template>
-  <q-page class="flex flex-center">
-    <div>
-      Item List
-      <div>
+  <q-page class="flex flex-center q-pa-md">
+    <div ref="itemLayout" class="row full-width item-layout">
+      <q-intersection
+        v-for="item in itemList"
+        :key="`${item.id}`"
+        :root="itemLayout"
+        transition="scale"
+      >
         <ItemCard
-          v-for="item in itemList"
-          :key="`${item.id}`"
+          class="item-card"
           :id="item.id"
           :itemName="item.item_name"
           :imageLink="item.image_link"
@@ -15,7 +18,7 @@
           :rating="item.rating"
           :reviewNumber="item.review_number"
         />
-      </div>
+      </q-intersection>
     </div>
   </q-page>
 </template>
@@ -32,6 +35,7 @@ export default defineComponent({
   data() {
     return {
       itemList: [],
+      itemLayout: null,
     };
   },
   async mounted() {
@@ -40,5 +44,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style></style>
