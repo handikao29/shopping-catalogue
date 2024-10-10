@@ -18,9 +18,17 @@ body {
   flex-wrap: wrap;
 }
 
-.item-card {
-  flex: 1 0 21%;
-  margin: 20px 10px 20px 10px;
+@media screen and (min-width: 601px) {
+  .item-card {
+    flex: 1 0 21%;
+    margin: 20px 10px 20px 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .item-card {
+    margin: 20px 10px 20px 10px;
+  }
 }
 
 .sort-by-select {
