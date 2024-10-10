@@ -14,7 +14,12 @@
           </template>
         </q-input>
       </div>
-      <div class="col-md-9 col-sm-6 col-xs-12 text-right">
+      <div
+        :class="[
+          $q.screen.xs ? 'q-mt-md' : '',
+          'col-md-9 col-sm-6 col-xs-12 text-right',
+        ]"
+      >
         <span class="q-mx-md">Sort by:</span>
         <q-select
           class="sort-by-select"

@@ -1,8 +1,8 @@
 <template>
   <q-page class="q-pa-md">
-    <span class="q-mb-md cursor-pointer" @click="$router.push('/')">
+    <q-btn flat class="q-mb-md" icon="chevron_left" @click="$router.push('/')">
       Back to menu
-    </span>
+    </q-btn>
     <template v-if="isLoaded">
       <div class="full-width q-my-md q-pa-md">
         <div class="detail--item-name q-mb-md">
