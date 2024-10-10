@@ -23,11 +23,23 @@ body {
     flex: 1 0 21%;
     margin: 20px 10px 20px 10px;
   }
+
+  .card-button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 }
 
 @media screen and (max-width: 600px) {
   .item-card {
     margin: 20px 10px 20px 10px;
+  }
+
+  .card-button {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 0px !important;
   }
 }
 

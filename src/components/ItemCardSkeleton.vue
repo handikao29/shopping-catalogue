@@ -9,6 +9,9 @@
     <q-item>
       <q-item-section>
         <q-item-label>
+          <q-skeleton height="50px" />
+        </q-item-label>
+        <q-item-label>
           <q-skeleton type="text" />
         </q-item-label>
         <q-item-label>
@@ -17,7 +20,7 @@
       </q-item-section>
     </q-item>
 
-    <q-card-actions align="center">
+    <q-card-actions align="center" class="q-gutter-md">
       <q-skeleton type="QBtn" />
       <q-skeleton type="QBtn" />
     </q-card-actions>

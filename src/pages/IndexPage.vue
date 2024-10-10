@@ -1,9 +1,10 @@
 <template>
   <q-page class="flex q-pa-md">
     <div class="row full-width">
-      <div class="col-md-3 col-xs-12 text-left">
+      <div class="col-md-3 col-sm-6 col-xs-12 text-left">
         <q-input
           v-model="searchFilter"
+          placeholder="Search product"
           outlined
           dense
           @update:model-value="filterProducts"
@@ -13,7 +14,7 @@
           </template>
         </q-input>
       </div>
-      <div class="col-md-9 col-xs-12 text-right">
+      <div class="col-md-9 col-sm-6 col-xs-12 text-right">
         <span class="q-mx-md">Sort by:</span>
         <q-select
           class="sort-by-select"

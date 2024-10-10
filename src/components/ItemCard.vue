@@ -34,10 +34,16 @@
     </q-card-section>
 
     <q-card-actions align="center">
-      <q-btn outline color="primary" @click="$router.push(`/detail/${id}`)"
+      <q-btn
+        outline
+        color="primary"
+        class="card-button"
+        @click="$router.push(`/detail/${id}`)"
         >Details</q-btn
       >
-      <q-btn icon="shopping_cart" color="primary">Add to Cart</q-btn>
+      <q-btn icon="shopping_cart" class="card-button" color="primary"
+        >Add to Cart</q-btn
+      >
     </q-card-actions>
   </q-card>
 </template>
@@ -96,5 +102,6 @@ export default defineComponent({
 .card {
   width: 100%;
   max-width: 400px;
+  min-width: 250px;
 }
 </style>
