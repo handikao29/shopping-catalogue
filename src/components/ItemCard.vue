@@ -15,20 +15,22 @@
       {{ description }}
     </q-card-section>
 
-    <q-card-section class="price-tag">
-      {{ `Rp. ${Intl.NumberFormat("id-ID").format(price)},-` }}
-    </q-card-section>
     <q-card-section>
-      <q-rating
-        v-model="ratingModel"
-        size="1.5em"
-        color="orange"
-        readonly
-        icon="star_border"
-        icon-selected="star"
-        icon-half="star_half"
-      />
-      {{ rating.toFixed(1) }} ({{ reviewNumber }})
+      <div class="price-tag">
+        {{ `Rp. ${Intl.NumberFormat("id-ID").format(price)},-` }}
+      </div>
+      <div>
+        <q-rating
+          v-model="ratingModel"
+          size="1.5em"
+          color="orange"
+          readonly
+          icon="star_border"
+          icon-selected="star"
+          icon-half="star_half"
+        />
+        {{ rating.toFixed(1) }} ({{ reviewNumber }})
+      </div>
     </q-card-section>
 
     <q-card-actions align="center">
