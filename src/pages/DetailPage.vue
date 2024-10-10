@@ -34,7 +34,7 @@
             icon-selected="star"
             icon-half="star_half"
           />
-          {{ itemData.rating.toFixed(1) }}
+          {{ itemData?.rating ? itemData?.rating.toFixed(1) : 0 }}
         </div>
         <div>{{ itemData.review_number }} Review(s)</div>
       </div>
