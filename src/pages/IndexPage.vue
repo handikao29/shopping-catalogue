@@ -96,6 +96,8 @@ export default defineComponent({
     };
   },
   async mounted() {
+    console.log(process.env.BACKEND_URL);
+    console.log(process.env.VUE_APP_BACKEND_URL);
     const response = await this.$api("/db");
     this.itemListMaster = response.data.items;
     this.itemList = this.itemListMaster;
