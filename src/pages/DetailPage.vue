@@ -3,21 +3,21 @@
     <span class="q-mb-md cursor-pointer" @click="$router.push('/')">
       Back to menu
     </span>
-    <q-card class="full-width q-my-md q-pa-md">
-      <div class="detail--item-name">
+    <div class="full-width q-my-md q-pa-md">
+      <div class="detail--item-name q-mb-md">
         {{ itemData ? itemData.item_name : "" }}
       </div>
       <div class="detail--seller-name">
         {{ itemData ? itemData.seller_name : "" }}
       </div>
-    </q-card>
+    </div>
     <div class="row full-width q-pa-md">
       <div class="col-md-6 col-xs-12 q-pa-md">
         <q-img :src="itemData.image_link"></q-img>
       </div>
       <div class="col-md-6 col-xs-12 q-pa-md">
         <div>{{ itemData ? itemData.description : "" }}</div>
-        <div class="price-tag">
+        <div class="price-tag q-mt-lg">
           {{
             itemData
               ? `Rp. ${Intl.NumberFormat("id-ID").format(itemData.price)},-`

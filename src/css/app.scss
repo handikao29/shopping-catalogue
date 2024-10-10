@@ -39,9 +39,11 @@ body {
 .detail {
   &--item-name {
     font-size: 32px;
+    font-weight: bold;
   }
 
   &--seller-name {
     font-size: 24px;
+    font-weight: 400;
   }
 }

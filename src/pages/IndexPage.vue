@@ -25,7 +25,7 @@
         />
       </div>
     </div>
-    <div ref="itemLayout" class="row full-width item-layout">
+    <div v-if="isLoaded" class="row full-width item-layout">
       <ItemCard
         v-for="item in itemList"
         :key="`${item.id}`"
@@ -40,20 +40,30 @@
         :reviewNumber="item.review_number"
       />
     </div>
+    <div v-else class="row full-width item-layout">
+      <ItemCardSkeleton
+        v-for="(item, index) in 10"
+        :key="`${index}`"
+        class="item-card"
+      />
+    </div>
   </q-page>
 </template>
 
 <script>
 import ItemCard from "src/components/ItemCard.vue";
+import ItemCardSkeleton from "src/components/ItemCardSkeleton.vue";
 import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "IndexPage",
   components: {
     ItemCard,
+    ItemCardSkeleton,
   },
   data() {
     return {
+      isLoaded: false,
       searchFilter: "",
       itemListMaster: [],
       itemList: [],
@@ -88,6 +98,8 @@ export default defineComponent({
       this.sortBy = this.sortByOptions[0];
       this.sortProducts();
     }
+
+    this.isLoaded = true;
   },
   methods: {
     filterProducts(keyword) {
