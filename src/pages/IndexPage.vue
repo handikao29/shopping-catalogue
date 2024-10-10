@@ -1,24 +1,43 @@
 <template>
-  <q-page class="flex flex-center q-pa-md">
+  <q-page class="flex q-pa-md">
+    <div class="row full-width">
+      <div class="col-3 text-left">
+        <q-input
+          v-model="searchFilter"
+          outlined
+          dense
+          @update:model-value="filterProducts"
+        >
+          <template v-slot:prepend>
+            <q-icon name="search" />
+          </template>
+        </q-input>
+      </div>
+      <div class="col-9 text-right">
+        <span class="q-mx-md">Sort by:</span>
+        <q-select
+          class="sort-by-select"
+          v-model="sortBy"
+          :options="sortByOptions"
+          outlined
+          dense
+        />
+      </div>
+    </div>
     <div ref="itemLayout" class="row full-width item-layout">
-      <q-intersection
+      <ItemCard
         v-for="item in itemList"
         :key="`${item.id}`"
-        :root="itemLayout"
-        transition="scale"
-      >
-        <ItemCard
-          class="item-card"
-          :id="item.id"
-          :itemName="item.item_name"
-          :imageLink="item.image_link"
-          :description="item.description"
-          :sellerName="item.seller_name"
-          :price="item.price"
-          :rating="item.rating"
-          :reviewNumber="item.review_number"
-        />
-      </q-intersection>
+        class="item-card"
+        :id="item.id"
+        :itemName="item.item_name"
+        :imageLink="item.image_link"
+        :description="item.description"
+        :sellerName="item.seller_name"
+        :price="item.price"
+        :rating="item.rating"
+        :reviewNumber="item.review_number"
+      />
     </div>
   </q-page>
 </template>
@@ -34,13 +53,46 @@ export default defineComponent({
   },
   data() {
     return {
+      searchFilter: "",
+      itemListMaster: [],
       itemList: [],
       itemLayout: null,
+      sortBy: null,
+      sortByOptions: [
+        {
+          label: "Rating",
+          value: "rating",
+        },
+        {
+          label: "Review Number",
+          value: "review_number",
+        },
+        {
+          label: "Price",
+          value: "price",
+        },
+      ],
     };
   },
   async mounted() {
     const response = await this.$api("/db");
-    this.itemList = response.data.items;
+    this.itemListMaster = response.data.items;
+    this.itemList = this.itemListMaster;
+
+    if (this.sortByOptions.length) {
+      this.sortBy = this.sortByOptions[0];
+    }
+  },
+  methods: {
+    filterProducts(keyword) {
+      if (keyword !== "") {
+        this.itemList = this.itemListMaster.filter(
+          (item) => item?.item_name === keyword
+        );
+      } else {
+        this.itemList = this.itemListMaster;
+      }
+    },
   },
 });
 </script>

@@ -7,7 +7,7 @@
       </div>
     </q-img>
 
-    <q-card-section>
+    <q-card-section class="ellipsis-3-lines">
       {{ description }}
     </q-card-section>
 

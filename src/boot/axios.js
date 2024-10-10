@@ -8,7 +8,7 @@ import axios from "axios";
 // "export default () => {}" function below (which runs individually
 // for each client)
 const api = axios.create({
-  baseURL: "https://my-json-server.typicode.com/handikao29/example-db",
+  baseURL: process.env.BACKEND_URL,
 });
 
 export default boot(({ app }) => {

@@ -2,7 +2,11 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar>
-        <q-toolbar-title> Shopping Catalogue </q-toolbar-title>
+        <q-space />
+
+        <q-btn class="q-mr-md" flat dense label="Home" />
+        <q-btn class="q-mr-md" flat dense label="Products" />
+        <q-btn class="q-mr-md" flat dense label="About Us" />
       </q-toolbar>
     </q-header>
 
