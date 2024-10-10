@@ -3,7 +3,7 @@
     <span class="q-mb-md cursor-pointer" @click="$router.push('/')">
       Back to menu
     </span>
-    <q-card class="full-width q-pa-md">
+    <q-card class="full-width q-my-md q-pa-md">
       <div class="detail--item-name">
         {{ itemData ? itemData.item_name : "" }}
       </div>

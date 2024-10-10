@@ -1,6 +1,10 @@
 <template>
-  <q-card class="card cursor-pointer" @click="$router.push(`/detail/${id}`)">
-    <q-img :src="imageLink">
+  <q-card class="card">
+    <q-img
+      :src="imageLink"
+      class="cursor-pointer"
+      @click="$router.push(`/detail/${id}`)"
+    >
       <div class="absolute-bottom">
         <div class="text-h6">{{ itemName }}</div>
         <div class="text-subtitle2">{{ sellerName }}</div>
@@ -26,6 +30,13 @@
       />
       {{ rating.toFixed(1) }} ({{ reviewNumber }})
     </q-card-section>
+
+    <q-card-actions align="center">
+      <q-btn outline color="primary" @click="$router.push(`/detail/${id}`)"
+        >Details</q-btn
+      >
+      <q-btn icon="shopping_cart" color="primary">Add to Cart</q-btn>
+    </q-card-actions>
   </q-card>
 </template>
 
@@ -36,7 +47,7 @@ export default defineComponent({
   name: "ItemCard",
   props: {
     id: {
-      type: Number,
+      type: String,
       required: true,
     },
     rating: {
@@ -82,6 +93,6 @@ export default defineComponent({
 <style>
 .card {
   width: 100%;
-  max-width: 250px;
+  max-width: 400px;
 }
 </style>

@@ -19,6 +19,7 @@
           class="sort-by-select"
           v-model="sortBy"
           :options="sortByOptions"
+          @update:model-value="sortProducts"
           outlined
           dense
         />
@@ -68,7 +69,11 @@ export default defineComponent({
           value: "review_number",
         },
         {
-          label: "Price",
+          label: "Highest Price",
+          value: "price",
+        },
+        {
+          label: "Lowest Price",
           value: "price",
         },
       ],
@@ -81,16 +86,34 @@ export default defineComponent({
 
     if (this.sortByOptions.length) {
       this.sortBy = this.sortByOptions[0];
+      this.sortProducts();
     }
   },
   methods: {
     filterProducts(keyword) {
       if (keyword !== "") {
-        this.itemList = this.itemListMaster.filter(
-          (item) => item?.item_name === keyword
+        this.itemList = this.itemListMaster.filter((item) =>
+          item?.item_name.toLowerCase().includes(keyword.toLowerCase())
         );
       } else {
         this.itemList = this.itemListMaster;
+      }
+    },
+    sortProducts() {
+      if (this.sortBy?.value) {
+        this.itemList = this.itemList.sort((a, b) => {
+          if (this.sortBy?.label === "Highest Price") {
+            return a.price < b.price ? 1 : a.price > b.price ? -1 : 0;
+          } else if (this.sortBy?.label === "Lowest Price") {
+            return a.price > b.price ? 1 : a.price < b.price ? -1 : 0;
+          } else {
+            return a[this.sortBy?.value] < b[this.sortBy?.value]
+              ? 1
+              : a[this.sortBy?.value] > b[this.sortBy?.value]
+              ? -1
+              : 0;
+          }
+        });
       }
     },
   },
