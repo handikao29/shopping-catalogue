@@ -13,7 +13,7 @@
     </q-card>
     <div class="row full-width q-pa-md">
       <div class="col-md-6 col-xs-12 q-pa-md">
-        <q-img src="https://cdn.quasar.dev/img/parallax2.jpg"></q-img>
+        <q-img :src="itemData.image_link"></q-img>
       </div>
       <div class="col-md-6 col-xs-12 q-pa-md">
         <div>{{ itemData ? itemData.description : "" }}</div>
@@ -34,7 +34,7 @@
             icon-selected="star"
             icon-half="star_half"
           />
-          {{ itemData.rating }}
+          {{ itemData.rating.toFixed(1) }}
         </div>
         <div>{{ itemData.review_number }} Review(s)</div>
       </div>

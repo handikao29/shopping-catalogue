@@ -24,7 +24,7 @@
         icon-selected="star"
         icon-half="star_half"
       />
-      {{ ratingModel }} ({{ reviewNumber }})
+      {{ rating.toFixed(1) }} ({{ reviewNumber }})
     </q-card-section>
   </q-card>
 </template>
