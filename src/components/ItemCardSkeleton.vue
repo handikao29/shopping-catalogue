@@ -2,7 +2,7 @@
   <q-card class="card">
     <q-item>
       <q-item-section>
-        <q-skeleton height="200px" />
+        <q-skeleton height="300px" />
       </q-item-section>
     </q-item>
 

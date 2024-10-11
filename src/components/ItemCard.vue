@@ -2,9 +2,16 @@
   <q-card class="card">
     <q-img
       :src="imageLink"
+      width="100%"
+      height="300px"
       class="cursor-pointer"
+      :alt="itemName"
       @click="$router.push(`/detail/${id}`)"
     >
+      <template v-slot:loading>
+        <q-spinner size="40px" />
+      </template>
+      <template v-slot:error> <q-icon name="error" color="red" /> </template>
     </q-img>
 
     <q-card-section>

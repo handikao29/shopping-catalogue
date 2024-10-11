@@ -14,7 +14,13 @@
       </div>
       <div class="row full-width q-pa-md">
         <div class="col-md-6 col-xs-12 q-pa-md">
-          <q-img :src="itemData.image_link"></q-img>
+          <q-img :src="`/${itemData.image_link}`" :alt="itemData.item_name">
+            <template v-slot:loading>
+              <q-spinner size="40px" />
+            </template>
+            <template v-slot:error>
+              <q-icon name="error" color="red" /> </template
+          ></q-img>
         </div>
         <div class="col-md-6 col-xs-12 q-pa-md">
           <div>{{ itemData ? itemData.description : "" }}</div>
