@@ -2,6 +2,8 @@
 
 A simple shopping catalogue page using Quasar Framework (Vue.js)
 
+Database using Typicode mockup API on [this repo](https://github.com/handikao29/example-db)
+
 ## Install the dependencies
 
 ```bash
