@@ -1,8 +1,6 @@
 <template>
   <q-page class="q-pa-md">
-    <q-btn flat class="q-mb-md" icon="chevron_left" @click="$router.push('/')">
-      Back to menu
-    </q-btn>
+    <BackToMenuButton @backToMenu="backToMenu" />
     <template v-if="isLoaded">
       <div class="full-width q-my-md q-pa-md">
         <div class="detail--item-name q-mb-md">
@@ -83,11 +81,13 @@
 <script>
 import { defineComponent } from "vue";
 import AddToCartButton from "src/components/AddToCartButton.vue";
+import BackToMenuButton from "src/components/BackToMenuButton.vue";
 
 export default defineComponent({
   name: "DetailPage",
   components: {
     AddToCartButton,
+    BackToMenuButton,
   },
   data() {
     return {
@@ -109,6 +109,9 @@ export default defineComponent({
         badgeTextColor: "dark",
         badgeClass: "shadow-3 glossy my-badge-class",
       });
+    },
+    backToMenu() {
+      this.$router.push("/");
     },
   },
 });
