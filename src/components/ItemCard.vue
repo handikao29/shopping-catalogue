@@ -34,25 +34,23 @@
     </q-card-section>
 
     <q-card-actions align="center">
-      <q-btn
-        outline
-        color="primary"
-        class="card-button"
-        @click="$router.push(`/detail/${id}`)"
-        >Details</q-btn
-      >
-      <q-btn icon="shopping_cart" class="card-button" color="primary"
-        >Add to Cart</q-btn
-      >
+      <DetailButton @goToDetail="$router.push(`/detail/${id}`)" />
+      <AddToCartButton />
     </q-card-actions>
   </q-card>
 </template>
 
 <script>
 import { defineComponent } from "vue";
+import AddToCartButton from "src/components/AddToCartButton.vue";
+import DetailButton from "./DetailButton.vue";
 
 export default defineComponent({
   name: "ItemCard",
+  components: {
+    AddToCartButton,
+    DetailButton,
+  },
   props: {
     id: {
       type: String,

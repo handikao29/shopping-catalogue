@@ -38,6 +38,9 @@
             {{ itemData?.rating ? itemData?.rating.toFixed(1) : 0 }}
           </div>
           <div>{{ itemData.review_number }} Review(s)</div>
+          <div>
+            <AddToCartButton />
+          </div>
         </div>
       </div>
     </template>
@@ -73,9 +76,13 @@
 
 <script>
 import { defineComponent } from "vue";
+import AddToCartButton from "src/components/AddToCartButton.vue";
 
 export default defineComponent({
   name: "DetailPage",
+  components: {
+    AddToCartButton,
+  },
   data() {
     return {
       isLoaded: false,

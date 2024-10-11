@@ -1,6 +1,6 @@
 # Shopping Catalogue (shopping-catalogue)
 
-A Quasar Project
+A simple shopping catalogue page using Quasar Framework (Vue.js)
 
 ## Install the dependencies
 
