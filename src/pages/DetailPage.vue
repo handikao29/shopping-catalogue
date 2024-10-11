@@ -39,7 +39,7 @@
           </div>
           <div>{{ itemData.review_number }} Review(s)</div>
           <div>
-            <AddToCartButton />
+            <AddToCartButton @addToCart="addToCart" />
           </div>
         </div>
       </div>
@@ -93,6 +93,17 @@ export default defineComponent({
     const response = await this.$api(`/items/${this.$route.params.id}`);
     this.itemData = response.data;
     this.isLoaded = true;
+  },
+  methods: {
+    addToCart() {
+      this.$q.notify({
+        message: "Item added to the cart",
+        color: "positive",
+        badgeColor: "positive",
+        badgeTextColor: "dark",
+        badgeClass: "shadow-3 glossy my-badge-class",
+      });
+    },
   },
 });
 </script>

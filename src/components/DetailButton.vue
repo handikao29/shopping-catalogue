@@ -1,5 +1,5 @@
 <template>
-  <q-btn outline color="primary" class="card-button" @click="goToDetail()"
+  <q-btn outline color="primary" class="card-button" @click="goToDetail"
     >Details</q-btn
   >
 </template>
