@@ -1,6 +1,14 @@
 <template>
   <q-page class="flex q-pa-md">
     <div class="row full-width">
+      <div class="welcome-text q-mb-sm">Welcome</div>
+    </div>
+    <div class="row full-width">
+      <div class="caption-welcome-text q-mb-sm">
+        Here is the products we sell, take a look at it
+      </div>
+    </div>
+    <div class="row full-width">
       <div class="col-md-3 col-sm-6 col-xs-12 text-left">
         <q-input
           v-model="searchFilter"
